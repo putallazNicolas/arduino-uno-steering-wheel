@@ -41,9 +41,12 @@ Before running the script, you need to install and set up **vJoy**, a virtual jo
 ---
 
 ### 4️⃣ Run the Python Script  
-1. Open a **terminal** or **command prompt**.  
+1. Open a **terminal** or **command prompt**.
 2. Navigate to the folder where `arduino_vjoy.py` is located.  
-3. Run the script:  
+3. Install the required libraries
+   ```sh
+   pip install pyserial pyvjoy
+4. Run the script:  
    ```sh
    python arduino_vjoy.py
 
