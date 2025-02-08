@@ -6,12 +6,44 @@ I wanted to buy nothing (except of the 3D print), but Arduino Uno (the one I hav
 
 This project uses vJoy to use this Arduino as a controller, but I needed "bridge" to connect the serial output from the arduino to vjoy. So i made It in Python.
 
-## How to use
+## How to Use
 
-First, connect the potentiometer as a voltage divider to one analog pin, I used a 25K pot, but a bit more or less is Ok. 
+### 1️⃣ Install and Configure vJoy  
+Before running the script, you need to install and set up **vJoy**, a virtual joystick driver.
 
-Then, load the arduino code into your arduino, and close Arduino IDE. (If you don´t close it it won't work).
+#### 🔹 Download vJoy  
+1. Download vJoy from **[this link](https://sourceforge.net/projects/vjoystick/)**.  
+2. Install it and restart your computer if needed.  
 
-After that, run *arduino_vjoy.py*, and It should be working now.
+#### 🔹 Configure vJoy  
+1. Open **vJoy Configurator** (`vJoyConf.exe`).  
+2. Make sure **Device 1 is enabled**.  
+3. Enable at least the **X-Axis** (and later Y-Axis, if needed).  
+4. Click **Apply** to save the settings.  
 
-You'll probably have to configure the steering wheel in your game, It probably won't get recongnized by anything, In my case F1 detected a controller and made me to put every control, i put some keyboard buttons for accelerator and the brakes, but I'll be adding them later.
+---
+
+### 2️⃣ Connect the Potentiometer  
+- Wire the potentiometer as a **voltage divider**:  
+  - **Middle pin** → Connect to an **analog pin** on the Arduino (e.g., `A0`).  
+  - **One side** → Connect to **5V**.  
+  - **Other side** → Connect to **GND**.  
+- I used a **25K potentiometer**, but a similar value (e.g., **10K - 50K**) should work fine.  
+
+---
+
+### 3️⃣ Upload the Code to the Arduino  
+1. Open the **Arduino IDE**.  
+2. Load the **Arduino code** onto your board.  
+3. **Close the Arduino IDE** after uploading the code.  
+   - 📌 **Important:** If you leave it open, it might block the serial port.  
+
+---
+
+### 4️⃣ Run the Python Script  
+1. Open a **terminal** or **command prompt**.  
+2. Navigate to the folder where `arduino_vjoy.py` is located.  
+3. Run the script:  
+   ```sh
+   python arduino_vjoy.py
+
