@@ -49,4 +49,5 @@ Before running the script, you need to install and set up **vJoy**, a virtual jo
 4. Run the script:  
    ```sh
    python arduino_vjoy.py
+5. If everything is set up correctly, your steering wheel should now be detected as a virtual joystick.
 
