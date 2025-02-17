@@ -15,10 +15,18 @@ while True:
     try:
         data = arduino.readline().decode().strip()
         if data:
-            volante = map_range(int(data), 0, 1023, 1, 32768)  # Eje X
+            values = data.split(",")
+            if len(values) == 3:
+                volante = map_range(int(values[0]), 0, 1023, 1, 32768)  # Eje X
+                boton1 = int(values[1]) == 0  # Botón 1 (invertido por PULLUP)
+                boton2 = int(values[2]) == 0  # Botón 2 (invertido por PULLUP)
 
-            # Enviar valor al eje X de vJoy
-            joystick.set_axis(pyvjoy.HID_USAGE_X, volante)
+                # Enviar valor del eje X a vJoy
+                joystick.set_axis(pyvjoy.HID_USAGE_X, volante)
+
+                # Enviar botones a vJoy
+                joystick.set_button(1, boton1)  # Botón 1
+                joystick.set_button(2, boton2)  # Botón 2
 
     except Exception as e:
         print("Error:", e)
